@@ -33,7 +33,8 @@ img {
   display: block;
 }
 
-span {
+p {
   display: inline-block;
+  overflow: hidden;
   text-overflow: ellipsis;
 }

@@ -6430,8 +6430,9 @@ img {
   height: 120px;
   display: block; }
 
-span {
+p {
   display: inline-block;
+  overflow: hidden;
   text-overflow: ellipsis; }
 
 /*# sourceMappingURL=main.css.map */

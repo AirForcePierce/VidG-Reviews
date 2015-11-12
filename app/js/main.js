@@ -14,7 +14,8 @@ var config = function config($stateProvider, $urlRouterProvider) {
     controller: 'VidGamesController',
     templateUrl: 'templates/videogames.tpl.html'
   }).state('root.single', {
-    url: '/single/:id',
+    url: '/single/:reviewsId',
+    controller: 'SingleController',
     templateUrl: 'templates/single.tpl.html'
   }).state('root.add', {
     url: '/add',
