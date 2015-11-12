@@ -1,6 +1,5 @@
 import angular from 'angular';
 import 'angular-ui-router';
-import $ from 'jquery';
 import VidGamesController from './controllers/vidgamescontroller';
 import AddGamesController from './controllers/addgamescontroller';
 import SingleGameController from './controllers/singlegamecontroller';
@@ -13,7 +12,6 @@ import ReviewService from './services/reviewservice';
 
 import config from './config';
 
-// $(document).foundation();
 
 
 angular
