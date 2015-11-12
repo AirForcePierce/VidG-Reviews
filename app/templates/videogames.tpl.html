@@ -1,10 +1,11 @@
-<h3>Video Game Reviews</h3>
 
+
+  <h3>Video Game Reviews</h3>
 <ul class="outergame">
   <li class="gamecontainer"ng-repeat="game in reviews">
-    <img src="{{game.image_url}}"/>
+    <a href="#/single/{{game.objectId}}"><img src="{{game.image_url}}"/></a>
     <br>
-    <p>Title: {{game.title}}</p>
+    <p class="gametitles">Title: {{game.title}}</p>
     <p>Year: {{game.year}}</p>
     <p>Review Score: {{game.score}} /10</p>
   </li>

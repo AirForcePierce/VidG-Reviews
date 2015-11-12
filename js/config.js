@@ -11,9 +11,9 @@ let config = function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/videogames.tpl.html'
     })
     .state('root.single', {
-      url: '/single/:reviewsId',
-      controller: 'SingleController',
-      templateUrl: 'templates/single.tpl.html'
+      url: '/single/:reviewId',
+      controller: 'SingleGameController',
+      templateUrl: 'templates/singlegame.tpl.html'
     })
     .state('root.add', {
       url: '/add',

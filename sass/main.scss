@@ -6,7 +6,15 @@
 @import 'neat';
 
 body {
-  background: #e2ebf3;
+  background: white;
+}
+
+.top-bar {
+  background-color: #980C20;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+    background: #980C20;
 }
 
 form {
@@ -16,25 +24,50 @@ form {
 
 .outergame {
   @include outer-container
-  width: 800px;
   margin: 20px auto;
 }
 
 .gamecontainer {
-  @include span-columns(3);
-  @include omega(4n);
-  width: 150px;
-  background-color: white;
+  @include span-columns(4);
+  @include omega(3n);
+  width: 200px;
+  background-color: #980C10;
+  margin: 30px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
 img {
-  width: 80px;
-  height: 120px;
-  display: block;
+  width: 50%;
+  height: 150px;
+  margin: auto 25%;
+  display: inline-block;
+}
+
+.gametitles {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  background-color: #ccc;
 }
 
 p {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  width: 100%;
+  margin: 0;
+  background-color: #ccc;
+}
+
+.biggerpic {
+  width: 50%;
+  height: auto;
+  margin: 0;
+}
+
+.reviewcontainer {
+  width: 500px;
+  margin: 20px auto;
+  border: 1px solid red;
+  background-color: #ccc;
+  border-radius: 6px;
 }

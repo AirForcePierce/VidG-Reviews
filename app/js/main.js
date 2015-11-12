@@ -14,9 +14,9 @@ var config = function config($stateProvider, $urlRouterProvider) {
     controller: 'VidGamesController',
     templateUrl: 'templates/videogames.tpl.html'
   }).state('root.single', {
-    url: '/single/:reviewsId',
-    controller: 'SingleController',
-    templateUrl: 'templates/single.tpl.html'
+    url: '/single/:reviewId',
+    controller: 'SingleGameController',
+    templateUrl: 'templates/singlegame.tpl.html'
   }).state('root.add', {
     url: '/add',
     controller: 'AddGamesController',
@@ -66,6 +66,27 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+var SingleGameController = function SingleGameController($scope, $stateParams, $http, PARSE) {
+
+  var url = PARSE.URL + 'classes/reviews/' + $stateParams.reviewId;
+
+  $http.get(url, PARSE.CONFIG).then(function (res) {
+
+    $scope.singleGame = res.data;
+  });
+};
+
+SingleGameController.$inject = ['$scope', '$stateParams', '$http', 'PARSE'];
+
+exports['default'] = SingleGameController;
+module.exports = exports['default'];
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 var VidGamesController = function VidGamesController($scope, $http, PARSE) {
 
   var url = PARSE.URL + 'classes/reviews';
@@ -80,7 +101,7 @@ VidGamesController.$inject = ['$scope', '$http', 'PARSE'];
 exports['default'] = VidGamesController;
 module.exports = exports['default'];
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -103,6 +124,10 @@ var _controllersAddgamescontroller = require('./controllers/addgamescontroller')
 
 var _controllersAddgamescontroller2 = _interopRequireDefault(_controllersAddgamescontroller);
 
+var _controllersSinglegamecontroller = require('./controllers/singlegamecontroller');
+
+var _controllersSinglegamecontroller2 = _interopRequireDefault(_controllersSinglegamecontroller);
+
 // import foundation from 'foundation-sites';
 // import angular-aria from 'angular-aria';
 // import angular-animate from 'angular-animate';
@@ -122,9 +147,9 @@ _angular2['default'].module('app', ['ui.router']).constant('PARSE', {
       'X-Parse-REST-API-Key': '6VibkLGy4gLJMaB9hkBDnnsBYuSYc7D0yNvWFiYo'
     }
   }
-}).config(_config2['default']).controller('VidGamesController', _controllersVidgamescontroller2['default']).controller('AddGamesController', _controllersAddgamescontroller2['default']);
+}).config(_config2['default']).controller('VidGamesController', _controllersVidgamescontroller2['default']).controller('AddGamesController', _controllersAddgamescontroller2['default']).controller('SingleGameController', _controllersSinglegamecontroller2['default']);
 
-},{"./config":1,"./controllers/addgamescontroller":2,"./controllers/vidgamescontroller":3,"angular":7,"angular-ui-router":5,"jquery":8}],5:[function(require,module,exports){
+},{"./config":1,"./controllers/addgamescontroller":2,"./controllers/singlegamecontroller":3,"./controllers/vidgamescontroller":4,"angular":8,"angular-ui-router":6,"jquery":9}],6:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4495,7 +4520,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33400,11 +33425,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":6}],8:[function(require,module,exports){
+},{"./angular":7}],9:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -42616,7 +42641,7 @@ return jQuery;
 
 }));
 
-},{}]},{},[4])
+},{}]},{},[5])
 
 
 //# sourceMappingURL=main.js.map

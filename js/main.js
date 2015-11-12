@@ -3,6 +3,7 @@ import 'angular-ui-router';
 import $ from 'jquery';
 import VidGamesController from './controllers/vidgamescontroller';
 import AddGamesController from './controllers/addgamescontroller';
+import SingleGameController from './controllers/singlegamecontroller';
 // import foundation from 'foundation-sites';
 // import angular-aria from 'angular-aria';
 // import angular-animate from 'angular-animate';
@@ -26,4 +27,6 @@ angular
 })
 .config(config)
 .controller('VidGamesController', VidGamesController)
-.controller('AddGamesController', AddGamesController);
+.controller('AddGamesController', AddGamesController)
+.controller('SingleGameController', SingleGameController)
+;

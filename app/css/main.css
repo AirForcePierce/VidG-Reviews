@@ -6394,7 +6394,13 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #e2ebf3; }
+  background: white; }
+
+.top-bar {
+  background-color: #980C20; }
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #980C20; }
 
 form {
   width: 500px;
@@ -6404,7 +6410,6 @@ form {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  width: 800px;
   margin: 20px auto; }
   .outergame::after {
     clear: both;
@@ -6415,24 +6420,47 @@ form {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%;
-  width: 150px;
-  background-color: white; }
+  width: 31.76157%;
+  width: 200px;
+  background-color: #980C10;
+  margin: 30px;
+  border: 1px solid #ccc;
+  border-radius: 6px; }
   .gamecontainer:last-child {
     margin-right: 0; }
-  .gamecontainer:nth-child(4n) {
+  .gamecontainer:nth-child(3n) {
     margin-right: 0; }
-  .gamecontainer:nth-child(4n+1) {
+  .gamecontainer:nth-child(3n+1) {
     clear: left; }
 
 img {
-  width: 80px;
-  height: 120px;
-  display: block; }
+  width: 50%;
+  height: 150px;
+  margin: auto 25%;
+  display: inline-block; }
+
+.gametitles {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  background-color: #ccc; }
 
 p {
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis; }
+  width: 100%;
+  margin: 0;
+  background-color: #ccc; }
+
+.biggerpic {
+  width: 50%;
+  height: auto;
+  margin: 0; }
+
+.reviewcontainer {
+  width: 500px;
+  margin: 20px auto;
+  border: 1px solid red;
+  background-color: #ccc;
+  border-radius: 6px; }
 
 /*# sourceMappingURL=main.css.map */
