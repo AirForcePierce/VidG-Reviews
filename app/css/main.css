@@ -6387,11 +6387,51 @@ th.hide-for-touch {
   th.show-for-print {
     display: table-cell !important; } }
 
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 body {
   background: #e2ebf3; }
 
 form {
   width: 500px;
   margin: 30px auto; }
+
+.outergame {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  margin: 20px auto; }
+  .outergame::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.gamecontainer {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  width: 150px;
+  background-color: white; }
+  .gamecontainer:last-child {
+    margin-right: 0; }
+  .gamecontainer:nth-child(4n) {
+    margin-right: 0; }
+  .gamecontainer:nth-child(4n+1) {
+    clear: left; }
+
+img {
+  width: 80px;
+  height: 120px;
+  display: block; }
+
+span {
+  display: inline-block;
+  text-overflow: ellipsis; }
 
 /*# sourceMappingURL=main.css.map */

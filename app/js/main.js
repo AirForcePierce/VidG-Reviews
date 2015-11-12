@@ -34,11 +34,27 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var AddGamesController = function AddGamesController($scope) {
-  $scope.gameTitle = 'Fallout 4';
+var AddGamesController = function AddGamesController($scope, $http, PARSE) {
+
+  var url = PARSE.URL + 'classes/reviews';
+
+  var GameReview = function GameReview(obj) {
+    this.title = obj.title;
+    this.year = obj.year;
+    this.reviewtext = obj.reviewtext;
+    this.score = obj.score;
+    this.image_url = obj.image_url;
+  };
+
+  $scope.addReview = function (obj) {
+    var vg = new GameReview(obj);
+    $http.post(url, vg, PARSE.CONFIG).then(function (res) {
+      $scope.game = {};
+    });
+  };
 };
 
-AddGamesController.$inject = ['$scope'];
+AddGamesController.$inject = ['$scope', '$http', 'PARSE'];
 
 exports['default'] = AddGamesController;
 module.exports = exports['default'];
@@ -49,9 +65,16 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var VidGamesController = function VidGamesController($scope) {};
+var VidGamesController = function VidGamesController($scope, $http, PARSE) {
 
-VidGamesController.$inject = ['$scope'];
+  var url = PARSE.URL + 'classes/reviews';
+
+  $http.get(url, PARSE.CONFIG).then(function (res) {
+    $scope.reviews = res.data.results;
+  });
+};
+
+VidGamesController.$inject = ['$scope', '$http', 'PARSE'];
 
 exports['default'] = VidGamesController;
 module.exports = exports['default'];

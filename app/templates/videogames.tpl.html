@@ -1,6 +1,11 @@
-<div>
-  <img src="{{image_url}}"/>
-  <span>{{gameTitle}}</span>
-  <span>{{gameYear}}</span>
-  <span>{{reviewScore}}</span>
-</div>
+<h3>Video Game Reviews</h3>
+
+<ul class="outergame">
+  <li class="gamecontainer"ng-repeat="game in reviews">
+    <img src="{{game.image_url}}"/>
+    <br>
+    <span>Title: {{game.title}}</span>
+    <span>Year: {{game.year}}</span>
+    <span>Review Score: {{game.score}} /10</span>
+  </li>
+</ul>

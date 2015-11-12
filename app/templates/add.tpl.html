@@ -1,8 +1,9 @@
-<form ng-submit="addReview()">
+<form ng-submit="addReview(game)">
   <label>Image URL</label>
-  <input type="url" placeholder="Image URL">
-  <input type="text" placeholder="Game Title">
-  <input type="text" placeholder="Game Year">
-  <input type="text" placeholder="Review Score">
-  <textarea placeholder="YOUR REVIEW...."></textarea>
+  <input type="url" placeholder="Image URL" ng-model="game.image_url">
+  <input type="text" placeholder="Game Title" ng-model="game.title">
+  <input type="text" placeholder="Game Year" ng-model="game.year">
+  <input type="text" placeholder="Review Score out of 10" ng-model="game.score">
+  <textarea placeholder="YOUR REVIEW...." ng-model="game.reviewtext"></textarea>
+  <button>Add Review</button>
 </form>
