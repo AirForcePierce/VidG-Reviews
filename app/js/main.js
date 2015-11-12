@@ -9,8 +9,11 @@ var config = function config($stateProvider, $urlRouterProvider) {
   $stateProvider.state('root', {
     abstract: true,
     templateUrl: 'templates/layout.tpl.html'
-  }).state('root.vidgames', {
+  }).state('root.home', {
     url: '/',
+    templateUrl: 'templates/home.tpl.html'
+  }).state('root.vidgames', {
+    url: '/reviews',
     controller: 'VidGamesController',
     templateUrl: 'templates/videogames.tpl.html'
   }).state('root.single', {
@@ -35,27 +38,16 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var AddGamesController = function AddGamesController($scope, $http, PARSE) {
-
-  var url = PARSE.URL + 'classes/reviews';
-
-  var GameReview = function GameReview(obj) {
-    this.title = obj.title;
-    this.year = obj.year;
-    this.reviewtext = obj.reviewtext;
-    this.score = obj.score;
-    this.image_url = obj.image_url;
-  };
+var AddGamesController = function AddGamesController($scope, ReviewService) {
 
   $scope.addReview = function (obj) {
-    var vg = new GameReview(obj);
-    $http.post(url, vg, PARSE.CONFIG).then(function (res) {
-      $scope.game = {};
+    ReviewService.addReview(obj).then(function (res) {
+      $scope.review = {};
     });
   };
 };
 
-AddGamesController.$inject = ['$scope', '$http', 'PARSE'];
+AddGamesController.$inject = ['$scope', 'ReviewService'];
 
 exports['default'] = AddGamesController;
 module.exports = exports['default'];
@@ -66,17 +58,13 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SingleGameController = function SingleGameController($scope, $stateParams, $http, PARSE) {
-
-  var url = PARSE.URL + 'classes/reviews/' + $stateParams.reviewId;
-
-  $http.get(url, PARSE.CONFIG).then(function (res) {
-
+var SingleGameController = function SingleGameController($scope, $stateParams, ReviewService) {
+  ReviewService.getReview($stateParams.reviewId).then(function (res) {
     $scope.singleGame = res.data;
   });
 };
 
-SingleGameController.$inject = ['$scope', '$stateParams', '$http', 'PARSE'];
+SingleGameController.$inject = ['$scope', '$stateParams', 'ReviewService'];
 
 exports['default'] = SingleGameController;
 module.exports = exports['default'];
@@ -87,16 +75,14 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var VidGamesController = function VidGamesController($scope, $http, PARSE) {
+var VidGamesController = function VidGamesController($scope, ReviewService) {
 
-  var url = PARSE.URL + 'classes/reviews';
-
-  $http.get(url, PARSE.CONFIG).then(function (res) {
+  ReviewService.getReviews().then(function (res) {
     $scope.reviews = res.data.results;
   });
 };
 
-VidGamesController.$inject = ['$scope', '$http', 'PARSE'];
+VidGamesController.$inject = ['$scope', 'ReviewService'];
 
 exports['default'] = VidGamesController;
 module.exports = exports['default'];
@@ -128,6 +114,10 @@ var _controllersSinglegamecontroller = require('./controllers/singlegamecontroll
 
 var _controllersSinglegamecontroller2 = _interopRequireDefault(_controllersSinglegamecontroller);
 
+var _servicesReviewservice = require('./services/reviewservice');
+
+var _servicesReviewservice2 = _interopRequireDefault(_servicesReviewservice);
+
 // import foundation from 'foundation-sites';
 // import angular-aria from 'angular-aria';
 // import angular-animate from 'angular-animate';
@@ -147,9 +137,64 @@ _angular2['default'].module('app', ['ui.router']).constant('PARSE', {
       'X-Parse-REST-API-Key': '6VibkLGy4gLJMaB9hkBDnnsBYuSYc7D0yNvWFiYo'
     }
   }
-}).config(_config2['default']).controller('VidGamesController', _controllersVidgamescontroller2['default']).controller('AddGamesController', _controllersAddgamescontroller2['default']).controller('SingleGameController', _controllersSinglegamecontroller2['default']);
+}).config(_config2['default']).controller('VidGamesController', _controllersVidgamescontroller2['default']).controller('AddGamesController', _controllersAddgamescontroller2['default']).controller('SingleGameController', _controllersSinglegamecontroller2['default']).service('ReviewService', _servicesReviewservice2['default']);
 
-},{"./config":1,"./controllers/addgamescontroller":2,"./controllers/singlegamecontroller":3,"./controllers/vidgamescontroller":4,"angular":8,"angular-ui-router":6,"jquery":9}],6:[function(require,module,exports){
+},{"./config":1,"./controllers/addgamescontroller":2,"./controllers/singlegamecontroller":3,"./controllers/vidgamescontroller":4,"./services/reviewservice":6,"angular":9,"angular-ui-router":7,"jquery":10}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var ReviewService = function ReviewService($http, PARSE) {
+
+  var url = PARSE.URL + 'classes/reviews';
+
+  var checkAuth = function checkAuth() {
+    return true;
+  };
+
+  this.getReviews = function () {
+    if (checkAuth()) {
+      return $http({
+        url: url,
+        headers: PARSE.CONFIG.headers,
+        method: 'GET',
+        cache: true
+      });
+    }
+  };
+
+  this.getReview = function (reviewId) {
+    if (checkAuth()) {
+      return $http({
+        url: url + '/' + reviewId,
+        headers: PARSE.CONFIG.headers,
+        method: 'GET',
+        cache: true
+      });
+    }
+  };
+
+  var GameReview = function GameReview(obj) {
+    this.title = obj.title;
+    this.year = obj.year;
+    this.reviewtext = obj.reviewtext;
+    this.score = obj.score;
+    this.image_url = obj.image_url;
+  };
+
+  this.addReview = function (obj) {
+    var vg = new GameReview(obj);
+    return $http.post(url, vg, PARSE.CONFIG);
+  };
+};
+
+ReviewService.$inject = ['$http', 'PARSE'];
+
+exports['default'] = ReviewService;
+module.exports = exports['default'];
+
+},{}],7:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4520,7 +4565,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33425,11 +33470,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":7}],9:[function(require,module,exports){
+},{"./angular":8}],10:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/

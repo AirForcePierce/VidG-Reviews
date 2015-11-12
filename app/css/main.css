@@ -6393,8 +6393,16 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+.container {
+  width: 75%;
+  margin: 5px auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: black;
+  color: white; }
+
 body {
-  background: white; }
+  background: black; }
 
 .top-bar {
   background-color: #980C20; }
@@ -6406,6 +6414,12 @@ form {
   width: 500px;
   margin: 30px auto; }
 
+.tophead {
+  width: 70%;
+  margin: 0 5px; }
+  .tophead h3 {
+    color: #980C10; }
+
 .outergame {
   max-width: 68em;
   margin-left: auto;
@@ -6415,6 +6429,11 @@ form {
     clear: both;
     content: "";
     display: table; }
+  .outergame p {
+    width: 100%;
+    margin: 0;
+    background-color: #ccc;
+    color: #980C10; }
 
 .gamecontainer {
   float: left;
@@ -6446,21 +6465,35 @@ img {
   width: 100%;
   background-color: #ccc; }
 
-p {
-  width: 100%;
-  margin: 0;
-  background-color: #ccc; }
-
 .biggerpic {
   width: 50%;
   height: auto;
-  margin: 0; }
+  margin-right: 100%;
+  display: inline-block;
+  float: left; }
 
 .reviewcontainer {
   width: 500px;
   margin: 20px auto;
   border: 1px solid red;
   background-color: #ccc;
-  border-radius: 6px; }
+  border-radius: 6px;
+  overflow: hidden; }
+  .reviewcontainer p {
+    float: left;
+    width: 100%;
+    margin: 0;
+    background-color: #ccc;
+    color: #980C10; }
+
+footer {
+  background-color: #980C10; }
+
+.amazonbuy {
+  display: inline-block;
+  margin: 0;
+  float: left;
+  width: 20%;
+  height: auto; }
 
 /*# sourceMappingURL=main.css.map */

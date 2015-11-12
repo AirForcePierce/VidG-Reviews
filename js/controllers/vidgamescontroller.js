@@ -1,14 +1,12 @@
-let VidGamesController = function ($scope, $http, PARSE) {
+let VidGamesController = function ($scope, ReviewService) {
 
-  let url = PARSE.URL + 'classes/reviews';
-
-
-  $http.get(url, PARSE.CONFIG).then( (res) => {
+  ReviewService.getReviews().then( (res) => {
     $scope.reviews = res.data.results;
   });
 
+
 };
 
-VidGamesController.$inject = ['$scope', '$http', 'PARSE'];
+VidGamesController.$inject = ['$scope', 'ReviewService'];
 
 export default VidGamesController;

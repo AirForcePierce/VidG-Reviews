@@ -4,6 +4,8 @@ import $ from 'jquery';
 import VidGamesController from './controllers/vidgamescontroller';
 import AddGamesController from './controllers/addgamescontroller';
 import SingleGameController from './controllers/singlegamecontroller';
+
+import ReviewService from './services/reviewservice';
 // import foundation from 'foundation-sites';
 // import angular-aria from 'angular-aria';
 // import angular-animate from 'angular-animate';
@@ -29,4 +31,5 @@ angular
 .controller('VidGamesController', VidGamesController)
 .controller('AddGamesController', AddGamesController)
 .controller('SingleGameController', SingleGameController)
+.service('ReviewService', ReviewService)
 ;

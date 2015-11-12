@@ -1,15 +1,10 @@
-let SingleGameController = function($scope, $stateParams, $http, PARSE) {
-
-  let url = PARSE.URL + 'classes/reviews/' + $stateParams.reviewId;
-
-  $http.get(url, PARSE.CONFIG).then( (res) => {
-
+let SingleGameController = function($scope, $stateParams, ReviewService) {
+  ReviewService.getReview($stateParams.reviewId).then( (res) =>{
     $scope.singleGame = res.data;
-
   });
 
 };
 
-SingleGameController.$inject = ['$scope', '$stateParams', '$http', 'PARSE'];
+SingleGameController.$inject = ['$scope', '$stateParams', 'ReviewService'];
 
 export default SingleGameController;

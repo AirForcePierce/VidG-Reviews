@@ -5,8 +5,16 @@
 @import 'bourbon';
 @import 'neat';
 
+.container {
+  width: 75%;
+  margin: 5px auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: black;
+  color: white;
+}
 body {
-  background: white;
+  background: black;
 }
 
 .top-bar {
@@ -22,9 +30,23 @@ form {
   margin: 30px auto;
 }
 
+.tophead {
+  width: 70%;
+  margin: 0 5px;
+  h3{
+  color: #980C10;
+  }
+}
+
 .outergame {
   @include outer-container
   margin: 20px auto;
+  p {
+    width: 100%;
+    margin: 0;
+    background-color: #ccc;
+    color: #980C10;
+  }
 }
 
 .gamecontainer {
@@ -52,16 +74,13 @@ img {
   background-color: #ccc;
 }
 
-p {
-  width: 100%;
-  margin: 0;
-  background-color: #ccc;
-}
-
 .biggerpic {
   width: 50%;
   height: auto;
-  margin: 0;
+  margin-right: 100%;
+  display: inline-block;
+  float:left;
+
 }
 
 .reviewcontainer {
@@ -70,4 +89,24 @@ p {
   border: 1px solid red;
   background-color: #ccc;
   border-radius: 6px;
+  overflow: hidden;
+  p {
+    float:left;
+    width: 100%;
+    margin: 0;
+    background-color: #ccc;
+    color: #980C10;
+  }
+}
+
+footer {
+  background-color: #980C10;
+}
+
+.amazonbuy {
+  display: inline-block;
+  margin: 0;
+  float: left;
+  width: 20%;
+  height: auto;
 }
