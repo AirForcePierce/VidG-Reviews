@@ -59,7 +59,9 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var HomeController = function HomeController() {
+var HomeController = function HomeController() {};
+
+var init = function init() {
   $(window).load(function () {
     $(document).foundation('orbit', 'reflow');
   });

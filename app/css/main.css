@@ -6496,4 +6496,11 @@ footer {
   width: 20%;
   height: auto; }
 
+.example-orbit {
+  height: 300px; }
+  .example-orbit li {
+    height: inherit; }
+    .example-orbit li img {
+      height: inherit; }
+
 /*# sourceMappingURL=main.css.map */

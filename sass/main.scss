@@ -110,3 +110,13 @@ footer {
   width: 20%;
   height: auto;
 }
+
+.example-orbit {
+  height: 300px;
+  li {
+    height: inherit;
+    img {
+      height: inherit;
+    }
+  }
+}
