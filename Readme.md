@@ -1,5 +1,7 @@
 ## Welcome to Vid G Reviews
 
+  #http://http://vidgreviewstiy.surge.sh/#/
+
   I decided to build a web application for anonymous reviews from anonymous gamers.  Ever get tired of making a horrible review for a game, and then taunted by the fan-bois who enjoy the huge steaming pile of nonsense, well you don't have to worry here, we are tracking you and you can say what you want.  And for the fan-bois you can give your fav games great reviews and no one will call you a fan-boi, well, except in this paragraph describing you!
 
 
