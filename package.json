@@ -45,6 +45,7 @@
     "jquery": "^2.1.4",
     "moment": "^2.10.6",
     "normalize.css": "^3.0.3",
+    "slick-carousel": "^1.5.8",
     "underscore": "^1.8.3"
   }
 }

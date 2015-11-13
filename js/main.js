@@ -3,6 +3,7 @@ import 'angular-ui-router';
 import VidGamesController from './controllers/vidgamescontroller';
 import AddGamesController from './controllers/addgamescontroller';
 import SingleGameController from './controllers/singlegamecontroller';
+import HomeController from './controllers/homecontroller';
 
 import ReviewService from './services/reviewservice';
 // import foundation from 'foundation-sites';
@@ -11,8 +12,6 @@ import ReviewService from './services/reviewservice';
 // import angular-material from 'angular-material';
 
 import config from './config';
-
-
 
 angular
 .module('app', ['ui.router'])
@@ -29,5 +28,6 @@ angular
 .controller('VidGamesController', VidGamesController)
 .controller('AddGamesController', AddGamesController)
 .controller('SingleGameController', SingleGameController)
+.controller('HomeController', HomeController)
 .service('ReviewService', ReviewService)
 ;

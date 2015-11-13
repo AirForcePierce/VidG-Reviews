@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" >
 <head>
   <title>Hello, World</title>
-  <link rel="stylesheet" type="text/css" href="/css/foundation.min.css">
+  <script src="/js/vendor/modernizr.js"></script>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
-  <div class="doc" ui-view></div>
+  <div ui-view></div>
 
 
-  <script src="/js/vendor/jquery.js"></script>
-  <script src="/js/vendor/fastclick.js"></script>
-  <script src="/js/foundation.min.js"></script>
+
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/fastclick.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/runme.js"></script>
   <script src="js/main.js"></script>
-  <script>
-  $(document).foundation();
-  </script>
 </body>
 </html>

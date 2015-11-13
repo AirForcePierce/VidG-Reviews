@@ -11,6 +11,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/layout.tpl.html'
   }).state('root.home', {
     url: '/',
+    controller: 'HomeController',
     templateUrl: 'templates/home.tpl.html'
   }).state('root.vidgames', {
     url: '/reviews',
@@ -58,6 +59,21 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+var HomeController = function HomeController() {
+  $(window).load(function () {
+    $(document).foundation('orbit', 'reflow');
+  });
+};
+
+exports['default'] = HomeController;
+module.exports = exports['default'];
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 var SingleGameController = function SingleGameController($scope, $stateParams, ReviewService) {
   ReviewService.getReview($stateParams.reviewId).then(function (res) {
     $scope.singleGame = res.data;
@@ -69,7 +85,7 @@ SingleGameController.$inject = ['$scope', '$stateParams', 'ReviewService'];
 exports['default'] = SingleGameController;
 module.exports = exports['default'];
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -87,7 +103,7 @@ VidGamesController.$inject = ['$scope', 'ReviewService'];
 exports['default'] = VidGamesController;
 module.exports = exports['default'];
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -110,6 +126,10 @@ var _controllersSinglegamecontroller = require('./controllers/singlegamecontroll
 
 var _controllersSinglegamecontroller2 = _interopRequireDefault(_controllersSinglegamecontroller);
 
+var _controllersHomecontroller = require('./controllers/homecontroller');
+
+var _controllersHomecontroller2 = _interopRequireDefault(_controllersHomecontroller);
+
 var _servicesReviewservice = require('./services/reviewservice');
 
 var _servicesReviewservice2 = _interopRequireDefault(_servicesReviewservice);
@@ -131,9 +151,9 @@ _angular2['default'].module('app', ['ui.router']).constant('PARSE', {
       'X-Parse-REST-API-Key': '6VibkLGy4gLJMaB9hkBDnnsBYuSYc7D0yNvWFiYo'
     }
   }
-}).config(_config2['default']).controller('VidGamesController', _controllersVidgamescontroller2['default']).controller('AddGamesController', _controllersAddgamescontroller2['default']).controller('SingleGameController', _controllersSinglegamecontroller2['default']).service('ReviewService', _servicesReviewservice2['default']);
+}).config(_config2['default']).controller('VidGamesController', _controllersVidgamescontroller2['default']).controller('AddGamesController', _controllersAddgamescontroller2['default']).controller('SingleGameController', _controllersSinglegamecontroller2['default']).controller('HomeController', _controllersHomecontroller2['default']).service('ReviewService', _servicesReviewservice2['default']);
 
-},{"./config":1,"./controllers/addgamescontroller":2,"./controllers/singlegamecontroller":3,"./controllers/vidgamescontroller":4,"./services/reviewservice":6,"angular":9,"angular-ui-router":7}],6:[function(require,module,exports){
+},{"./config":1,"./controllers/addgamescontroller":2,"./controllers/homecontroller":3,"./controllers/singlegamecontroller":4,"./controllers/vidgamescontroller":5,"./services/reviewservice":7,"angular":10,"angular-ui-router":8}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -188,7 +208,7 @@ ReviewService.$inject = ['$http', 'PARSE'];
 exports['default'] = ReviewService;
 module.exports = exports['default'];
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4559,7 +4579,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33464,11 +33484,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":8}]},{},[5])
+},{"./angular":9}]},{},[6])
 
 
 //# sourceMappingURL=main.js.map
