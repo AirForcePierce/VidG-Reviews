@@ -4,6 +4,9 @@ import VidGamesController from './controllers/vidgamescontroller';
 import AddGamesController from './controllers/addgamescontroller';
 import SingleGameController from './controllers/singlegamecontroller';
 import HomeController from './controllers/homecontroller';
+import 'angular-foundation';
+import 'angular-carousel';
+import ngTouch from 'angular-touch';
 
 import ReviewService from './services/reviewservice';
 // import foundation from 'foundation-sites';
@@ -14,7 +17,7 @@ import ReviewService from './services/reviewservice';
 import config from './config';
 
 angular
-.module('app', ['ui.router'])
+.module('app', ['ui.router', 'mm.foundation', 'angular-carousel', 'ngTouch'])
 .constant('PARSE', {
   URL: 'https://api.parse.com/1/',
   CONFIG: {
@@ -25,6 +28,9 @@ angular
   }
 })
 .config(config)
+.controller('TopBarCtrl', function ($scope) {
+
+})
 .controller('VidGamesController', VidGamesController)
 .controller('AddGamesController', AddGamesController)
 .controller('SingleGameController', SingleGameController)

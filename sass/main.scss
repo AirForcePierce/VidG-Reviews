@@ -5,6 +5,32 @@
 @import 'bourbon';
 @import 'neat';
 
+.homecontainer {
+    color: #980C20;
+    h2 {
+      color: white;
+    }
+    h3{
+      color: red;
+    }
+    h1 {
+      color: #980C20;
+    }
+}
+
+.imagec {
+  height: 400px;
+}
+
+.imagesc  {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: inherit;
+  img {
+    height: auto;
+  }
+}
+
 .container {
   width: 75%;
   margin: 5px auto;
@@ -109,14 +135,4 @@ footer {
   float: left;
   width: 20%;
   height: auto;
-}
-
-.example-orbit {
-  height: 300px;
-  li {
-    height: inherit;
-    img {
-      height: inherit;
-    }
-  }
 }
