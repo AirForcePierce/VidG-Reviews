@@ -1,6 +1,6 @@
 ## Welcome to Vid G Reviews
 
-  #http://http://vidgreviewstiy.surge.sh/#/
+  http://vidgreviewstiy.surge.sh/#/
 
   I decided to build a web application for anonymous reviews from anonymous gamers.  Ever get tired of making a horrible review for a game, and then taunted by the fan-bois who enjoy the huge steaming pile of nonsense, well you don't have to worry here, we are tracking you and you can say what you want.  And for the fan-bois you can give your fav games great reviews and no one will call you a fan-boi, well, except in this paragraph describing you!
 
@@ -20,3 +20,7 @@
 ## Features
 
   You are able to create reviews on the fly and have the data stored on my private PARSE.  I then display the images and the review.  You can make as many reviews as you want.  Also, there is a Amazon Buy Button hooked up for each game reviewed so that you can purchase that game for your horrible console or awesome PC.
+
+##Features to add later
+
+  - Avg Score at the top of the specific video game view
