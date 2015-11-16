@@ -43,7 +43,7 @@ var AddGamesController = function AddGamesController($scope, ReviewService) {
 
   $scope.addReview = function (obj) {
     ReviewService.addReview(obj).then(function (res) {
-      $scope.review = {};
+      $scope.game = {};
     });
   };
 };

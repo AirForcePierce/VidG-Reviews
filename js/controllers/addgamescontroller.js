@@ -2,7 +2,7 @@ let AddGamesController = function ($scope, ReviewService) {
 
   $scope.addReview = (obj) => {
     ReviewService.addReview(obj).then( (res) => {
-      $scope.review = {};
+      $scope.game = {};
     });
   };
 
